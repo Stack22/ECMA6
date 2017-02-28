@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>spreadstuff</title>
+</head>
+
+<body>
+  <script>
+    const featured = ['Deep Disk', 'Veggie', 'Hawaiian'];
+    const meat = ['italian sausage', 'Pepperoni']
+    const pizza = [...featured, ...meat];
+    console.log(pizza);
+    
+    const comments = [{
+      id: 0,
+      text: '👮'
+    }, {
+      id: 1,
+      text: '💩'
+    }, {
+      id: 2,
+      text: '🐸'
+    }, {
+      id: 3,
+      text: '🍚'
+    }];
+    const id = 1;
+    const commentIndex = comments.findIndex(comment => comment.id === id);
+    console.log(comments[commentIndex].text);
+    const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+
+    // you can use the for of loop on arguments - which are not exactly an array
+    function argTastic(...args) {
+      for (const [i, arg] of args) {
+        console.log(`${i} ${arg}`);
+      }
+    }
+
+    argTastic(1, 2, 3, 4, 5);
+    function addUp(...amounts) {
+      return amounts.reduce((prevVal, currVal) => prevVal += currVal);
+    }
+    console.log(addUp(1, 2, 3, 4, 5));
+  
+    //related but not exactly the same:
+    const ages = Array.of(32, 15, 19, 12);
+  </script>
+
+</body>
+
+</html>

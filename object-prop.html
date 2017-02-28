@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+  //object.assign
+    const objA = {
+      foo: 'foo',
+      bar: 'bar'
+    };
+
+    const objB = {
+      foo: 'something else',
+      bizz: 'bizz',
+      bang: 'bang'
+    };
+
+    console.log(Object.assign({}, objA, objB));
+
+    //property value shorthand
+    // in es6
+
+    const x = 1;
+    const y = 2;
+    const myObj = {x, y}
+    console.log(myObj); // =>
+
+    // equivalent to this in es5
+
+    //  var x = 1;
+    //  var y = 2;
+    var myOtherObj = {x: x, y: y};
+    console.log(myOtherObj);
+  </script>
+</body>
+
+</html>

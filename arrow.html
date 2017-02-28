@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>arrow function</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+
+  <div class="current-time">yes, yes, yes</div>
+  <script>
+    // const ages = [23, 24, 15, 65, 345];
+    
+    // // verbose ES5 version
+    // let es5Ages = ages.filter(function (age) {
+    //   return age > 23;
+    // });   
+    
+    // // omit the function & return keywords
+    // let es6Ages = ages.filter(age => age > 23);
+
+    // // Here is a new way to define functions
+    // let double = i => i*2;
+    // let returnAStringForFun = () => 'fun';
+    
+    // // Which is like
+    // var doubleES5 = function (i) {
+    //   return i * 2;
+    // };
+    
+    // var returnAStringForFunES5 = function () {
+    //     return 'fun';
+    // } 
+    //every function has it's own 'this'
+    $('.current-time').each(function () {
+      console.log('outside \'setInterval\' this = ' + this);
+      setInterval(function () {
+        console.log('inside \'setInterval\' this = ' + this); // window is 'this' because
+        $(this).text(Date.now());                             // window is the left of the dot
+      }, 1000);
+    });
+
+    // es5 workaround: that or self = this;
+    // $('.current-time').each(function () {
+    //   var self = this;
+    //   console.log('outside \'setInterval\' this = ' + self);
+    //   setInterval(function () {
+    //     console.log('inside \'setInterval\' self = ' + self); // cached version of this in self variable
+    //     console.log('inside \'setInterval\' this = ' + this); //window is 'this'
+    //     $(self).text(Date.now());
+    //   }, 1000);
+    // });
+    
+    //es6 version... this does NOT get reset inside arrow functions
+    // $('.current-time').each(function () {
+    //   setInterval(() => $(this).text(Date.now()), 1000);
+    // });
+    
+  </script>
+</body>
+
+</html>

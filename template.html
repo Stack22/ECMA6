@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings</title>
+</head>
+
+<body>
+  <ul id="list"></ul>
+  <script>
+    const names = ['ric', 'perin', 'lana'];
+    const ul = document.querySelectorAll('#list');
+    names.forEach(name => {
+      const li = document.createElement('li');
+      li.innerHTML = `<li> Hi ${name} </li>`;
+      ul[0].appendChild(li);
+    });
+  </script>
+</body>
+
+</html>

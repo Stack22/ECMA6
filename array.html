@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Array functions</title>
+</head>
+
+<body>
+  <div class="people">
+    <p>Lana</p>
+    <p>Perin</p>
+    <p>Ric</p>
+  </div>
+
+  <script>
+    const people = document.querySelectorAll('.people p');
+    console.log(people);
+    const peopleArr = Array.from(people);
+    for (const person of people) {
+      console.log(person);
+    }
+    console.log(Array.isArray(peopleArr));
+    const ages = Array.of(32, 15, 19, 12);
+    const adultPresent = ages.some(age => age < 9);
+    console.log(adultPresent);
+
+    const allDrinkable = ages.every(age => age > 11);
+    console.log(allDrinkable);
+  </script>
+</body>
+
+</html>
